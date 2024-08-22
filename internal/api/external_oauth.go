@@ -126,9 +126,9 @@ func (a *API) oAuth1Callback(ctx context.Context, providerType string) (*OAuthPr
 			return nil, internalServerError("Unable to retrieve access token").WithInternalError(err)
 		}
 		userData, err = twitterProvider.FetchUserData(ctx, accessToken)
-		if err != nil {
-			return nil, internalServerError("Error getting user email from external provider").WithInternalError(err)
-		}
+		//if err != nil {
+		//	return nil, internalServerError("Error getting user email from external provider").WithInternalError(err)
+		//}
 	}
 
 	return &OAuthProviderData{

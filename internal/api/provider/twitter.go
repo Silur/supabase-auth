@@ -91,13 +91,13 @@ func (t TwitterProvider) FetchUserData(ctx context.Context, tok *oauth.AccessTok
 	_ = json.NewDecoder(bytes.NewReader(bits)).Decode(&u)
 
 	data := &UserProvidedData{}
-	if u.Email != "" {
+
 		data.Emails = []Email{{
 			Email:    u.Email,
 			Verified: true,
 			Primary:  true,
 		}}
-	}
+
 
 	data.Metadata = &Claims{
 		Issuer:            t.UserInfoURL,
